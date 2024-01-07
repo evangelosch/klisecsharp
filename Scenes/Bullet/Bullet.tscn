@@ -1,12 +1,29 @@
 [gd_scene load_steps=4 format=3 uid="uid://bon4d8w0olstg"]
 
-[ext_resource type="Script" path="res://Scenes/Enemy/Slime/Bullet.gd" id="1_h2t5o"]
 [ext_resource type="Texture2D" uid="uid://udfdlxn6luuy" path="res://assets/lpc-monsters/bullet6.png" id="2_jyp03"]
+
+[sub_resource type="GDScript" id="GDScript_0231e"]
+script/source = "extends Area2D
+
+
+var direction: Vector2 = Vector2.RIGHT
+var speed: float = 300
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	position += direction * speed * delta
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_twyn5"]
 
 [node name="Bullet" type="Area2D"]
-script = ExtResource("1_h2t5o")
+script = SubResource("GDScript_0231e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_jyp03")
