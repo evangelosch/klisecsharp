@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmsqjfxc4h4x"]
+[gd_scene load_steps=6 format=3 uid="uid://bmsqjfxc4h4x"]
+
+[ext_resource type="PackedScene" uid="uid://ct35omd3edl8s" path="res://Scenes/Player/Player.tscn" id="1_ejfsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj0td"]
 size = Vector2(28, 714)
@@ -43,3 +45,6 @@ shape = SubResource("RectangleShape2D_b4rv7")
 [node name="DownWallCollision" type="CollisionShape2D" parent="Camera2D/ScreenBoundaries"]
 position = Vector2(0, 369)
 shape = SubResource("RectangleShape2D_sh6dn")
+
+[node name="Player" parent="." instance=ExtResource("1_ejfsk")]
+position = Vector2(505, 282)
